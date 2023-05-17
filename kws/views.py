@@ -27,8 +27,8 @@ def long_running_task(audio_file, task_id):
     mix_noise_and_data.mix()
 
     trainer = Trainer(keyword_dir, noise_dir, unknown_dir)
-    trainer.train()
-    
+    trainer.train() #once the training is completed, the file is automatically saved
+
     tasks[task_id] = 'complete'
 
 @csrf_exempt
