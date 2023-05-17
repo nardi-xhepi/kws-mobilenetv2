@@ -61,9 +61,7 @@ Le processus de formation du modèle est le suivant :
 1. Les fichiers audio sont chargés et convertis en une représentation MFCC (Mel-Frequency Cepstral Coefficients).
 2. Les données sont divisées en ensembles d'entraînement et de validation.
 3. Un modèle pré-entraîné, MobileNetV2, est utilisé comme base pour le réseau de neurones.
-4. Le modèle est adapté à la tâche en ajout
-
-ant quelques nouvelles couches à la fin.
+4. Le modèle est adapté à la tâche en ajoutant quelques nouvelles couches à la fin.
 5. Le modèle est entraîné sur les données d'entraînement et validé sur les données de validation.
 
 L'application KWS est conçue pour être facile à utiliser et à interagir. Elle fournit une interface utilisateur intuitive qui guide les utilisateurs à travers le processus d'entraînement et de prédiction.
