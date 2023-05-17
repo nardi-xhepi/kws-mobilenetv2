@@ -1,4 +1,4 @@
-# Reconnaissance Vocale KWS
+# Reconnaissance Vocale de mot-clé (Keyword spotting)
 
 Ce projet est une application web interactive qui permet aux utilisateurs d'interagir avec un réseau de neurones pour enregistrer leur voix, la former et la reconnaître. Le modèle d'apprentissage est basé sur le MobileNetV2.
 
