@@ -3,7 +3,16 @@ var header = document.getElementById("header");
 var navcontent = document.getElementById("nav-content");
 var navaction = document.getElementById("navAction");
 
-console.log("hello");
+
+document.getElementById('aide').addEventListener('click', function() {
+    let codeSnippet = `
+      def hello_world():
+          print("Hello, world!")
+    `;
+    prompt("Copy to clipboard: Ctrl+C, Enter", codeSnippet);
+  });
+
+  
 
 document.addEventListener("scroll", function () {
 /*Apply classes for slide in bar*/

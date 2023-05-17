@@ -7,7 +7,12 @@ from django.views.decorators.csrf import csrf_exempt
 
 import split_voice
 import mix_noise_and_data
+from trainer import Trainer
 
+
+keyword_dir = "../data/keyword"
+noise_dir = "../data/noise"
+unknown_dir = "../data/unknown"
 
 def home(request):
     return render(request, 'html/index.html')
@@ -21,7 +26,9 @@ def long_running_task(audio_file, task_id):
     split_voice.split()
     mix_noise_and_data.mix()
 
-    #train neural network for several minutes and register file
+    trainer = Trainer(keyword_dir, noise_dir, unknown_dir)
+    trainer.train()
+    
     tasks[task_id] = 'complete'
 
 @csrf_exempt

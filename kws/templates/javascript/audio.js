@@ -10,7 +10,7 @@ function updateTimer() {
 }
 
 
-let timeout = 2;
+let timeout = 5;
 
 updateTimer();
 
@@ -26,7 +26,7 @@ startBtn.addEventListener("click", () => {
             clearInterval(timerInterval);
             if (mediaRecorder && mediaRecorder.state !== 'inactive') {
                 startBtn.disabled = false;
-                timeout = 2;
+                timeout = 5;
                 mediaRecorder.stop();
             }
         }else{
@@ -109,4 +109,7 @@ function fetchModelFile() {
         })
         .catch(error => console.error(error));
 }
+
+
+
 
