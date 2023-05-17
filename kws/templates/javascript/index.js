@@ -2,8 +2,8 @@ var scrollpos = window.scrollY;
 var header = document.getElementById("header");
 var navcontent = document.getElementById("nav-content");
 var navaction = document.getElementById("navAction");
-var brandname = document.getElementById("brandname");
-var toToggle = document.querySelectorAll(".toggleColour");
+
+console.log("hello");
 
 document.addEventListener("scroll", function () {
 /*Apply classes for slide in bar*/
@@ -15,11 +15,6 @@ if (scrollpos > 10) {
     navaction.classList.add("gradient");
     navaction.classList.remove("text-gray-800");
     navaction.classList.add("text-white");
-    //Use to switch toggleColour colours
-    for (var i = 0; i < toToggle.length; i++) {
-    toToggle[i].classList.add("text-gray-800");
-    toToggle[i].classList.remove("text-white");
-    }
     header.classList.add("shadow");
     navcontent.classList.remove("bg-gray-100");
     navcontent.classList.add("bg-white");
@@ -29,11 +24,6 @@ if (scrollpos > 10) {
     navaction.classList.add("bg-white");
     navaction.classList.remove("text-white");
     navaction.classList.add("text-gray-800");
-    //Use to switch toggleColour colours
-    for (var i = 0; i < toToggle.length; i++) {
-    toToggle[i].classList.add("text-white");
-    toToggle[i].classList.remove("text-gray-800");
-    }
 
     header.classList.remove("shadow");
     navcontent.classList.remove("bg-white");
@@ -73,3 +63,7 @@ function checkParent(t, elm) {
   }
   return false;
 }
+
+
+
+
