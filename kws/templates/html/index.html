@@ -116,21 +116,25 @@
                 Participez à l'entraînement de notre modèle en enregistrant un échantillon de votre voix
               </p>
             </a>
-            <img alt="register" id="start" class="block ml-auto mr-auto w-1/4 " style = "display: block" src="templates/media/pause.png">
-            <img alt="register" id="stop" class="block ml-auto mr-auto w-1/4 " style = "display: none" src="templates/media/pause.png">
-            
+            <div class="flex flex-row items-center justify-center">
+              <button id="start" class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                Commencer
+              </button>
+              <button id="stop" style="display: none;" class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+              </button>
+            </div>
           </div>
         </div>
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+            <div class="flex flex-wrap no-underline hover:no-underline">
               <div class="w-full font-bold text-xl text-gray-800 px-6">
                 Téléchargez
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
                 Vous pouvez télécharger le fichier du modèle entraîné
               </p>
-              <img alt="register" class="block ml-auto mr-auto w-1/4 " src="templates/media/telechargement.png">
+              <img alt="register" id="download" style="display: none;" class="block ml-auto mr-auto w-1/4 " src="templates/media/telechargement.png">
             </a>
           </div>
         </div>
@@ -154,6 +158,26 @@
           </div>
         </div>
       </div>
+
+      <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink mx-auto">
+        <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+          <div class="w-full font-bold text-xl text-gray-800 px-6 py-6 text-center">
+            Live Audio
+          </div>
+          <div class="flex flex-row items-center justify-center">
+            <button id="startButton" class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+              Start
+            </button>
+            <button id="stopButton" style="display: none;" class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+              Stop
+            </button>
+          </div>
+          <div id="prediction" class="w-full font-bold text-xl text-gray-800 px-6 py-6 text-center">
+            Prediction: <span id="result"></span>
+          </div>
+        </div>
+      </div>
+      
     </section>
     <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -200,5 +224,6 @@
       /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
     </script>
     <script src="templates/javascript/audio.js"></script>
+    <script src="templates/javascript/live_audio.js"></script>
   </body>
 </html>
