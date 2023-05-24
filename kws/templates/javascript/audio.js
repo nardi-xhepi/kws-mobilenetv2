@@ -2,6 +2,7 @@ let mediaRecorder;
 let chunks = [];
 const startBtn = document.getElementById("start");
 const download = document.getElementById("download");
+const downloading = document.getElementById("downloading");
 const timer = document.getElementById("stop");
 const BASE_URL = "http://127.0.0.1:8000";
 
@@ -62,7 +63,8 @@ startBtn.addEventListener("click", () => {
                 .then(response => response.json())
                 .then(data => {
                     let task_id = data.task_id;
-                
+                    downloading.style.display = "block";
+
                     let interval = setInterval(() => {
 
                         fetch(BASE_URL + '/kws/checkTaskStatus?task_id=' + task_id)
@@ -103,6 +105,7 @@ function fetchModelFile() {
             a.href = url;
             a.download = 'model.h5';
             download.style.display = "block";
+            downloading.style.display = "none";
             download.addEventListener('click', () => {
                 a.click(); // This will download the trained model file automatically
             });

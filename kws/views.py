@@ -9,10 +9,9 @@ import split_voice
 import mix_noise_and_data
 from trainer import Trainer
 
-
-keyword_dir = "../data/keyword"
-noise_dir = "../data/noise"
-unknown_dir = "../data/unknown"
+keyword_dir = "C:\\Users\\nardi\\Desktop\\TSP\\Developpement informatique\\data\\axel"
+noise_dir = "C:\\Users\\nardi\\Desktop\\TSP\\Developpement informatique\\data\\noise_chunk"
+unknown_dir = "C:\\Users\\nardi\\Desktop\\TSP\\Developpement informatique\\data\\unknown"
 
 def home(request):
     return render(request, 'html/index.html')
@@ -24,7 +23,6 @@ tasks = {}
 
 def long_running_task(audio_file, task_id):
     split_voice.split()
-    mix_noise_and_data.mix()
 
     trainer = Trainer(keyword_dir, noise_dir, unknown_dir)
     trainer.train() #once the training is completed, the file is automatically saved
