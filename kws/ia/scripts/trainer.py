@@ -46,7 +46,7 @@ class Trainer:
         train_datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.1, width_shift_range=0.1, height_shift_range=0.1)
         val_datagen = ImageDataGenerator(rescale=1./255)
 
-        # Create MobileNetV2 model for transfer learning
+        # Create MobileNetV2 model for transfer learning in tensorflow
         base_model = tf.keras.applications.MobileNetV2(input_shape=(128, 63, 3), include_top=False, weights='imagenet')
         x = base_model.output
         x = GlobalAveragePooling2D()(x)
