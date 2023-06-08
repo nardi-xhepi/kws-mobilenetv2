@@ -6,8 +6,7 @@ from django.http import JsonResponse, FileResponse
 from django.views.decorators.csrf import csrf_exempt
 
 import split_voice
-import mix_noise_and_data
-from trainer import Trainer
+from trainer import *
 
 keyword_dir = "C:\\Users\\nardi\\Desktop\\TSP\\Developpement informatique\\data\\axel"
 noise_dir = "C:\\Users\\nardi\\Desktop\\TSP\\Developpement informatique\\data\\noise_chunk"
@@ -22,10 +21,25 @@ import uuid
 tasks = {}
 
 def long_running_task(audio_file, task_id):
+
+
     split_voice.split()
 
-    trainer = Trainer(keyword_dir, noise_dir, unknown_dir)
-    trainer.train() #once the training is completed, the file is automatically saved
+    #C:\\Users\\nardi\\
+    dataloader = DataLoader(axel_dir = "C:\\Users\\nardi\\Desktop\\TSP\\Developpement informatique\\data\\axel",
+    noise_dir = "C:\\Users\\nardi\\Desktop\\TSP\\Developpement informatique\\data\\noise_chunk",
+    unknown_dir = "C:\\Users\\nardi\\Desktop\\TSP\\Developpement informatique\\data\\unknown")
+    """
+    dataloader = DataLoader(axel_dir = "C:\\Users\\nardi\\website\\kws\\ia\\data\\keyword",
+                            noise_dir = "C:\\Users\\nardi\\website\\kws\\ia\\data\\noise",
+                            unknown_dir = "C:\\Users\\nardi\\website\\kws\\ia\\data\\unknown")
+    
+    """
+    import warnings
+    warnings.filterwarnings("ignore")
+    dataloader.load_data()
+    trainer = Trainer(dataloader.all_data)
+    trainer.train()
 
     tasks[task_id] = 'complete'
 

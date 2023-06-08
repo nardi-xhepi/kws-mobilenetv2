@@ -1,4 +1,4 @@
-let socket = new WebSocket('ws://localhost:8000/ws/audio_processing/');
+let socket = new WebSocket('ws://127.0.0.1:8000/ws/audio_processing/');
 
 // Button elements
 let startButton = document.getElementById('startButton');
@@ -56,8 +56,9 @@ function startRecording() {
     // Record audio data from the microphone
     navigator.mediaDevices.getUserMedia({ audio: true, video: false })
     .then(function(stream) {
-        mediaRecord = new MediaRecorder(stream);
-        mediaRecord.start(1000); // timeslice parameter is set to 1000 milliseconds
+        const options = {mimeType: 'audio/webm'};
+        mediaRecord = new MediaRecorder(stream, options);
+        mediaRecord.start(2000); // timeslice parameter is set to 2000 milliseconds
 
         // When enough audio data has been recorded, send it to the server
         mediaRecord.ondataavailable = function(event) {
