@@ -11,7 +11,7 @@ function updateTimer() {
 }
 
 
-let timeout = 3;
+let timeout = 30;
 
 updateTimer();
 
@@ -27,7 +27,7 @@ startBtn.addEventListener("click", () => {
             clearInterval(timerInterval);
             if (mediaRecorder && mediaRecorder.state !== 'inactive') {
                 startBtn.disabled = false;
-                timeout = 3;
+                timeout = 30;
                 mediaRecorder.stop();
             }
         }else{
